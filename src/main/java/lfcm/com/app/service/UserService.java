@@ -34,6 +34,8 @@ public class UserService {
 	@Autowired
 	CLAAccessConfigService cLAAccessConfigService;
 	
+	@Autowired
+	MenuService menuService;
 	
 	public String registerUser(User user)
 	{
@@ -111,9 +113,9 @@ public class UserService {
 			}
 			else
 			{
-				//get the main menus 
-				//iterate main menu to get submenu
-				//iterate submenu to get action and action link
+				listOfLoginObject.add("{\"menu\":\"exists\"}");
+				//listOfLoginObject.add("{\"menu\":\"exists\"}");
+				listOfLoginObject.add(menuService.getUserMenu(cLAAcessConfig.getRole()));
 			}
 		}
 		else

@@ -15,4 +15,8 @@ lcms.controller('homeController', function($rootScope,$scope,$http,$location) {
 	{
 		$scope.menu.selected='worklist';
 	}
+	
+	$scope.routeMenu=function(x){
+		$scope.menu.selected=x;
+	};
 })

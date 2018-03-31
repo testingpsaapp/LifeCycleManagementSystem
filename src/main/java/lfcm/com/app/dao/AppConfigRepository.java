@@ -9,11 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import lfcm.com.app.entity.AppConfig;
 
-
-
-
-
-
 @Repository
 public interface AppConfigRepository extends JpaRepository<AppConfig, Long> {
 
