@@ -92,8 +92,12 @@ lcms.controller('loginController', function($rootScope,$scope,$http,$location) {
 				        localStorage.currentUser = data.data[1].soeId; 
 				        localStorage.currentUserFirstName = data.data[1].firstName;
 				        localStorage.currentUserMenu=JSON.parse(data.data[2]).menu;
+				        if(localStorage.currentUserMenu!='none')
+				        {
+				        	localStorage.userMenu = data.data[3];
+				        }
 				        localStorage.sessionId=data.data[1].uuid;
-				        //console.log(JSON.parse(data.data[2]).menu);
+				        //console.log(localStorage.userMenu);
 				        $location.path( "/home" );
 				 } 
 				 else 

@@ -18,4 +18,10 @@ public interface MenuRepository extends JpaRepository<Menu,Long>{
 	@Query("SELECT DISTINCT m.subMenu FROM Menu m WHERE m.mainMenu = :mainMenu and m.accessGroup like %:userAccessGroup%")
 	public List<String> getMenuByMainMenu(@Param("mainMenu") String mainMenu,@Param("userAccessGroup") String userAccessGroup);
 	
+	@Query("SELECT DISTINCT m.subMenuLink FROM Menu m WHERE m.mainMenu = :mainMenu and m.subMenu = :subMenu and m.accessGroup like %:userAccessGroup%")
+	public String getSubMenuLinkByMainMenuSubMenuAccess(@Param("mainMenu") String mainMenu,@Param("userAccessGroup") String userAccessGroup,@Param("subMenu") String subMenu);
+	
+	@Query("SELECT m.action FROM Menu m WHERE m.mainMenu = :mainMenu and m.subMenu = :subMenu and m.accessGroup like %:userAccessGroup%")
+	public List<String> getSubMenuAction(@Param("mainMenu") String mainMenu,@Param("userAccessGroup") String userAccessGroup,@Param("subMenu") String subMenu);
+	
 }
